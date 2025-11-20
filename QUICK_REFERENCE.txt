@@ -1,0 +1,55 @@
+╔════════════════════════════════════════════════════════════════╗
+║          MSME ERROR NOTIFICATION - QUICK REFERENCE             ║
+╚════════════════════════════════════════════════════════════════╝
+
+✅ STATUS: ACTIVE AND CONFIGURED
+
+📧 EMAIL SETUP
+   From: siyamukeladlamini1@gmail.com
+   To:   siyamukeladlamini1@icloud.com
+         mis@datamatics.co.sz
+
+⚙️  CONFIGURATION FILE
+   Location: /root/MSME Full Code Backup/MSME-Backend/.env
+   
+   Key Settings:
+   • MAIL_AUTH_USER=siyamukeladlamini1@gmail.com
+   • ADMIN_ERROR_EMAILS=siyamukeladlamini1@icloud.com,mis@datamatics.co.sz
+   • ERROR_NOTIFICATION_RATE_LIMIT_MINUTES=15
+
+🔍 CHECK IF WORKING
+   tail -f backend.log | grep "Error notification"
+   
+   Look for:
+   "Error notifications will be sent to: siyamukeladlamini1@icloud.com, mis@datamatics.co.sz"
+
+🧪 TEST THE SYSTEM
+   cd /root/MSME\ Full\ Code\ Backup/MSME-Backend
+   node test-error-notification.js
+
+⚠️  WHAT TRIGGERS EMAILS
+   • API endpoint errors (500 status)
+   • Database connection failures
+   • Uncaught exceptions
+   • Unhandled promise rejections
+
+🛡️  RATE LIMITING
+   Same error only sent once every 15 minutes
+
+🔄 RESTART SERVER
+   cd /root/MSME\ Full\ Code\ Backup/MSME-Backend
+   npm restart
+
+📖 FULL DOCUMENTATION
+   • EMAIL_NOTIFICATION_SETUP_COMPLETE.md - Setup summary
+   • ERROR_NOTIFICATION_GUIDE.md - Detailed guide
+
+💡 TROUBLESHOOTING
+   1. Check spam/junk folders
+   2. View logs: tail -50 backend.log
+   3. Test: node test-error-notification.js
+   4. Verify .env settings
+
+═══════════════════════════════════════════════════════════════
+Setup Date: November 20, 2025 | Status: ✅ ACTIVE
+═══════════════════════════════════════════════════════════════
